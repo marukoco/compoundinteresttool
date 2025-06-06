@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Calculator Help</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        code,
+        pre {
+            background: #f4f4f4;
+            padding: 6px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>📘 How to Use This Calculator</h2>
+    <h3> 🧮 What is Compound Interest?</h3>
+    <p>Compound interest is the interest calculated on the initial principal and also on the accumulated interest of
+        previous periods.
+    </p>
+
+    <h3>🔢 Input Field Explanations</h3>
+    <ul>
+        <li><strong>Initial Amount</strong>: Your starting investment.</li>
+        <li><strong>Annual Interest Rate</strong>: Input yearly rate (e.g. 5 for 5%).</li>
+        <li><strong>Years</strong>: Total duration. Use decimals for partial years (e.g. 1.5 = 18 months).</li>
+        <li><strong>Times Compounded Per Year</strong>: 12 = monthly, 4 = quarterly, 1 = yearly.</li>
+        <li><strong>Recurring Contribution</strong>: Optional amount you invest regularly.</li>
+        <li><strong>Contribution Frequency</strong>: Number of times you contribute per year (e.g. 12 = monthly).</li>
+    </ul>
+
+    <h3>📘 Calculation Formula</h3>
+
+    <p><strong>Total Amount = Principal Growth + Recurring Growth</strong></p>
+
+    <h4>Principal Growth:</h4>
+    <pre>P × (1 + r / n) ^ (n × t)</pre>
+
+    <h4>Recurring Contribution Growth:</h4>
+    <pre>PMT × [(1 + r / m) ^ (m × t) - 1] / (r / m)</pre>
+
+    <h4>Parameters:</h4>
+    <ul>
+        <li><code>P</code> = Initial Principal</li>
+        <li><code>r</code> = Annual Interest Rate (decimal)</li>
+        <li><code>n</code> = Compounding Frequency per year</li>
+        <li><code>m</code> = Recurring Contribution Frequency per year</li>
+        <li><code>t</code> = Investment duration in years</li>
+        <li><code>PMT</code> = Recurring Contribution Amount</li>
+    </ul>
+
+    <h3>💡 Tips</h3>
+    <li>All fields accept decimals.</li>
+    <li>For monthly savings: set both compounding and contribution frequency to 12.</li>
+    <li>Result is automatically calculated when you hit "Calculate".</li>
+    <li>Use "Clear" to reset all fields.</li>
+
+    <p><a href="index.html" class="back-link">← Back to Calculator</a></p>
+
+</body>
+
+</html>
