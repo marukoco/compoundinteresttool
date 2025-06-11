@@ -1,25 +1,20 @@
+<!-- updated marker -->
+<!-- 新版 index.html 包含结果展开区、复制按钮、分享、About 区段等 -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta name="description"
-    content="CompoundInterestTool.com – Calculate your investment growth using compound interest with recurring contributions. Fast, free, and accurate." />
-  <meta name="keywords"
-    content="compound interest tool, compound calculator,interest calculator, investment calculator, financial tools, recurring savings calculator" />
+  <meta name="description" content="CompoundInterestTool.com – Calculate your investment growth using compound interest with recurring contributions. Fast, free, and accurate." />
+  <meta name="keywords" content="compound interest tool, compound calculator, interest calculator, investment calculator, financial tools, recurring savings calculator" />
   <meta name="author" content="CompoundInterestTool.com" />
-
   <title>Compound Interest Tool – Free Online Calculator</title>
-
   <script defer src="https://cloud.umami.is/script.js" data-website-id="8fa24f31-3409-4df5-aa04-4eae038dd24e"></script>
   <meta name="google-site-verification" content="DUv1J_NwmHlWORNxaug-C_VhpttUWbvdYo-QCqgQFFo" />
-
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
   <header>
     <h1>Compound Interest Tool</h1>
@@ -27,49 +22,52 @@
       <a href="help.html" class="help-link" title="Click for help and formulas">📘 Help & Formulas</a>
     </nav>
   </header>
-
   <main>
     <section aria-label="Compound Interest Tool Form">
       <form id="interest-form">
         <label for="principal">Initial Amount ($):</label>
         <input type="number" id="principal" name="principal" step="0.01" required />
-
         <label for="rate">Annual Interest Rate (%):</label>
         <input type="number" id="rate" name="rate" step="0.01" required />
-
         <label for="years">Investment Duration (Years):</label>
         <input type="number" id="years" name="years" step="0.01" required />
-
         <label for="frequency">Compounding Frequency:</label>
         <select id="frequency" name="frequency">
           <option value="1">Annually</option>
           <option value="4">Quarterly</option>
           <option value="12">Monthly</option>
         </select>
-
         <label for="recurringAmount">Recurring Contribution ($):</label>
         <input type="number" id="recurringAmount" name="recurringAmount" step="0.01" />
-
         <label for="contributionFrequency">Contribution Frequency (Times per Year):</label>
         <input type="number" id="contributionFrequency" name="contributionFrequency" step="1" />
-
         <div class="button-container">
           <button type="submit">Calculate</button>
           <button type="button" id="clearBtn">Clear</button>
         </div>
       </form>
-
-      <div id="result" class="result-output">
-        Enter your values above to calculate compound interest and future investment growth.
+      <div id="result" class="result-output" style="display:none;">
+        <p><strong>Total Amount:</strong> $<span id="total-value"></span></p>
+        <ul>
+          <li><strong>Initial Principal:</strong> $<span id="initial-value"></span></li>
+          <li><strong>Total from Recurring Contributions:</strong> $<span id="recurring-value"></span></li>
+          <li><strong>Years:</strong> <span id="duration-value"></span></li>
+          <li><strong>Estimated Interest Earned:</strong> $<span id="interest-value"></span></li>
+        </ul>
+        <button id="copyBtn">📋 Copy Summary</button>
+        <a href="https://twitter.com/intent/tweet?text=Check+out+my+compound+interest+projection!+https://compoundinteresttool.com" target="_blank">📢 Share on Twitter</a>
+        <!-- 图表容器 -->
+        <canvas id="resultChart" style="margin-top:30px;"></canvas>
       </div>
     </section>
+    <section class="about-section">
+      <h2>About This Tool</h2>
+      <p>This calculator is built to help people better understand compound interest growth over time. It's completely free and doesn't store your data. We believe that simple financial tools should be accessible to everyone.</p>
+    </section>
   </main>
-
   <footer>
     <p>&copy; 2025 CompoundInterestTool.com. All rights reserved.</p>
   </footer>
-
   <script src="script.js"></script>
 </body>
-
 </html>

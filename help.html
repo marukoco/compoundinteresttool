@@ -2,82 +2,158 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Understand how compound interest is calculated. Learn formulas, input field meanings, and usage tips for this free online tool.">
-
-    <title>Calculator Help</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how compound interest is calculated. This help page explains the formula, input fields, and provides examples. Ideal for financial learners and calculator users." />
+  <meta name="keywords" content="compound interest help, compound formula explanation, interest calculation, investment guide, financial education, interest tool support" />
+  <link rel="canonical" href="https://compoundinteresttool.com/help.html" />
+  <link rel="alternate" href="https://compoundinteresttool.com/help.html" hreflang="en" />
+  <title>Help & Guide – Compound Interest Tool</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is compound interest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compound interest is the interest calculated on the initial principal and also on the accumulated interest from previous periods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do the input fields mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each field represents a part of the compound interest formula, including principal, rate, time, compounding frequency, and optional recurring contributions."
+          }
         }
-
-        h2 {
-            color: #2c3e50;
-        }
-
-        code,
-        pre {
-            background: #f4f4f4;
-            padding: 6px 10px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        ul {
-            margin-left: 20px;
-        }
-    </style>
-
+      ]
+    }
+  </script>
+  <style>
+    main {
+      padding: 20px;
+    }
+    details {
+      margin-bottom: 1.2rem;
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    pre, code {
+      background: #f4f4f4;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 
 <body>
-    <h2>📘 How to Use This Calculator</h2>
-    <h3> 🧮 What is Compound Interest?</h3>
-    <p>Compound interest is the interest calculated on the initial principal and also on the accumulated interest of
-        previous periods.
-    </p>
+  <header>
+    <h1>Help & Guide – Compound Interest Explained</h1>
+    <nav>
+      <a href="index.html" class="help-link">← Back to Calculator</a>
+    </nav>
+  </header>
 
-    <h3>🔢 Input Field Explanations</h3>
-    <ul>
+  <main>
+    <details open>
+      <summary>🧮 What is Compound Interest?</summary>
+      <p>Compound interest is the interest calculated on the initial principal and also on the accumulated interest of previous periods. It creates a snowball effect over time.</p>
+    </details>
+
+    <details>
+      <summary>🔢 Input Field Explanations</summary>
+      <ul>
         <li><strong>Initial Amount</strong>: Your starting investment.</li>
         <li><strong>Annual Interest Rate</strong>: Input yearly rate (e.g. 5 for 5%).</li>
-        <li><strong>Years</strong>: Total duration. Use decimals for partial years (e.g. 1.5 = 18 months).</li>
-        <li><strong>Times Compounded Per Year</strong>: 12 = monthly, 4 = quarterly, 1 = yearly.</li>
-        <li><strong>Recurring Contribution</strong>: Optional amount you invest regularly.</li>
-        <li><strong>Contribution Frequency</strong>: Number of times you contribute per year (e.g. 12 = monthly).</li>
-    </ul>
+        <li><strong>Years</strong>: Total investment duration. Supports decimals.</li>
+        <li><strong>Times Compounded Per Year</strong>: 12 = monthly, 4 = quarterly, etc.</li>
+        <li><strong>Recurring Contribution</strong>: Optional amount you add regularly.</li>
+        <li><strong>Contribution Frequency</strong>: How many times you add per year.</li>
+      </ul>
+    </details>
 
-    <h3>📘 Calculation Formula</h3>
+    <details>
+      <summary>📘 Calculation Formulas</summary>
+      <p><strong>Total Amount = Principal Growth + Recurring Growth</strong></p>
+      <h4>Principal Growth:</h4>
+      <pre>P × (1 + r / n) ^ (n × t)</pre>
+      <h4>Recurring Contribution Growth:</h4>
+      <pre>PMT × [(1 + r / m) ^ (m × t) - 1] / (r / m)</pre>
+      <p><strong>Parameters:</strong></p>
+      <ul>
+        <li><code>P</code>: Initial Principal</li>
+        <li><code>r</code>: Annual Interest Rate (decimal)</li>
+        <li><code>n</code>: Compounding Frequency</li>
+        <li><code>m</code>: Contribution Frequency</li>
+        <li><code>t</code>: Years</li>
+        <li><code>PMT</code>: Contribution Amount</li>
+      </ul>
+    </details>
 
-    <p><strong>Total Amount = Principal Growth + Recurring Growth</strong></p>
+    <details>
+      <summary>📊 Sample Chart Output</summary>
+      <canvas id="exampleChart" width="100%" height="40"></canvas>
+      <script>
+        const ctx = document.getElementById('exampleChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5"],
+            datasets: [
+              {
+                label: 'Total Value',
+                data: [10500, 11025, 11576, 12155, 12762],
+                borderColor: '#007acc',
+                fill: false
+              },
+              {
+                label: 'Principal Only',
+                data: [10000, 10000, 10000, 10000, 10000],
+                borderColor: '#999',
+                borderDash: [5, 5],
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: false
+              }
+            }
+          }
+        });
+      </script>
+    </details>
 
-    <h4>Principal Growth:</h4>
-    <pre>P × (1 + r / n) ^ (n × t)</pre>
+    <details>
+      <summary>💡 Tips for Best Results</summary>
+      <ul>
+        <li>Use decimals for partial years (e.g. 1.5 = 18 months).</li>
+        <li>Set compounding and contribution frequency both to 12 for monthly.</li>
+        <li>Click "Calculate" after entering your inputs to see result.</li>
+        <li>Use "Clear" to reset all fields.</li>
+      </ul>
+    </details>
+  </main>
 
-    <h4>Recurring Contribution Growth:</h4>
-    <pre>PMT × [(1 + r / m) ^ (m × t) - 1] / (r / m)</pre>
-
-    <h4>Parameters:</h4>
-    <ul>
-        <li><code>P</code> = Initial Principal</li>
-        <li><code>r</code> = Annual Interest Rate (decimal)</li>
-        <li><code>n</code> = Compounding Frequency per year</li>
-        <li><code>m</code> = Recurring Contribution Frequency per year</li>
-        <li><code>t</code> = Investment duration in years</li>
-        <li><code>PMT</code> = Recurring Contribution Amount</li>
-    </ul>
-
-    <h3>💡 Tips</h3>
-    <li>All fields accept decimals.</li>
-    <li>For monthly savings: set both compounding and contribution frequency to 12.</li>
-    <li>Result is automatically calculated when you hit "Calculate".</li>
-    <li>Use "Clear" to reset all fields.</li>
-
-    <p><a href="index.html" class="back-link">← Back to Calculator</a></p>
-
+  <footer>
+    <p>&copy; 2025 CompoundInterestTool.com</p>
+  </footer>
 </body>
 
 </html>
